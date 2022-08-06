@@ -11,6 +11,7 @@ let g:loaded_lists = 1
 call lists#u#init_option('lists_filetypes', [])
 call lists#u#init_option('lists_maps_default_enable', v:true)
 call lists#u#init_option('lists_maps_default_override', {})
+call lists#u#init_option('lists_maps_prefix', '<leader>w')
 call lists#u#init_option('lists_todos', ['TODO', 'DONE'])
 
 command! ListsEnable call lists#init()

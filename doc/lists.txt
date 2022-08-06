@@ -107,9 +107,9 @@ The following is a list of the commands and mappings provided by |lists.vim|.
                                                           *lists-maps-defaults*
 The default mappings are listed in the following table. To disable the default
 mappings, see |g:lists_maps_default_enable|. They can also be overrided
-individually with |g:lists_maps_default_override|. The map mode is indicated
-by the first letters of the various map commands (|nmap|, |imap|, |omap|, and
-|xmap|).
+individually with |g:lists_maps_default_override|. The '<leader>w' prefix is
+controlled by |g:lists_maps_prefix|. The map mode is indicated by the first
+letters of the various map commands (|nmap|, |imap|, |omap|, and |xmap|).
 
    PLUG                                DEFAULT         MODE~
    ----                                -------         ----~
@@ -153,6 +153,14 @@ CONFIGURATION                                                    *lists-config*
           \}
 <
   Default: `{}`
+
+*g:lists_maps_prefix*
+  Prefix for most default mappings. The default mappings are listed in
+  |lists-maps-defaults|, where '<leader>w' gets replaced by this option. This
+  only affects default mappings; for finer control, see
+  |g:lists_maps_default_override|.
+
+  Default: '<leader>w'
 
 *g:lists_todos*
   A list of TODO toggles that may be toggled with |<plug>(lists-toggle)|, which
