@@ -5,10 +5,19 @@
 "
 
 function! lists#init() abort " {{{1
-  " Set 'comments' and 'formatoptions' to work well with lists
-  setlocal comments+=fb:*,f:*\ TODO:,b:*\ [\ ],b:*\ [x]
-  setlocal comments+=fb:-,f:-\ TODO:,b:-\ [\ ],b:-\ [x]
-  setlocal formatoptions+=ron
+  " Configure formatting to work well with lists.
+  " 'autoindent' makes list items longer than two lines indent correctly
+  setlocal autoindent
+  " 'fo-n' enables the 'formatlistpat' feature
+  setlocal formatoptions+=n
+  " Set 'formatlistpat', see doc for more info.
+  " Order matters, the regex should match the longest bullet possible. For this
+  " reason, we hardcode the regex here rather than try assembling the pattern
+  " like 's:items_re' does in parser.vim.
+  let &l:formatlistpat = '^\s*[-*]\s\%(\[.\]\s\|[A-Z]\+:\s\)\?\s*'
+  " Remove comments that might conflict.
+  let &l:comments = join(filter(split(&l:comments, ','),
+                              \ "v:val !~# '^[a-z]*:[-*]'"), ',')
 
   command! -buffer ListsMoveUp    call lists#move(0)
   command! -buffer ListsMoveDown  call lists#move(1)

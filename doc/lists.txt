@@ -59,6 +59,29 @@ These types of lists are currently supported:
 * List items can be decorated with labels like "TODO:" and "DONE:".
 
 ==============================================================================
+FORMATTING                                                   *lists-formatting*
+
+The plugin sets 'autoindent', adds |fo-n| to 'formatoptions', and sets
+'formatlistpat' so that list items are indented nicely (all local to the
+buffer). More precisely, 'formatlistpat' is set to (greedily) recognise the
+following bullets: >
+
+  *
+  -
+  * [x]
+  - WORD:
+  * WORD:
+<
+where "WORD" is any capitalised word and "x" is any single symbol or space.
+This is a strictly larger class of bullets then supported in |lists-types|.
+
+Note: Since 'comments' and 'formatlistpat' do not interact well, all comments
+starting with "-" or "*" are removed when this plugin is enabled.
+
+Note: This plugin does _not_ automatically begin new lines with the previous
+line's bullet. However, |<plug>(lists-toggle)| may help.
+
+==============================================================================
 FEATURES                                                       *lists-features*
 
 The following is a list of the commands and mappings provided by |lists.vim|.
