@@ -52,7 +52,7 @@ determine its structure.
 
 These types of lists are currently supported:
 * Bullet lists. Bullets are either "*" or "-".
-* Numbered lists formated similar to "1.".
+* Numbered lists formatted similar to "1.".
 * List items can be decorated with check boxes. Examples:
   * [x] checked
   * [ ] unchecked
@@ -73,7 +73,7 @@ following bullets: >
   * WORD:
 <
 where "WORD" is any capitalised word and "x" is any single symbol or space.
-This is a strictly larger class of bullets then supported in |lists-types|.
+This is a strictly larger class of bullets than supported in |lists-types|.
 
 Note: Since 'comments' and 'formatlistpat' do not interact well, all comments
 starting with "-" or "*" are removed when this plugin is enabled.
